@@ -23,4 +23,29 @@ class ItemsService extends BaseService implements ItemsServiceContract
     {
         parent::__construct($model);
     }
+
+    /**
+     * Получаем объекты по типу.
+     *
+     * @param  string  $type
+     * @param  array  $params
+     *
+     * @return array
+     */
+    public function getItemsByType(string $type = '', array $params = []): array
+    {
+        $items = $this->model->itemsByType($type, $params)->get();
+
+        $data = [];
+
+        $items->each(
+            function ($item) use (&$data) {
+                foreach ($item->classifiers as $type) {
+                    $data[$type->alias][] = $item;
+                }
+            }
+        );
+
+        return $data;
+    }
 }

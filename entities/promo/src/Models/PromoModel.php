@@ -5,6 +5,7 @@ namespace InetStudio\PromoPackage\Promo\Models;
 use Illuminate\Support\Carbon;
 use OwenIt\Auditing\Auditable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use InetStudio\Uploads\Models\Traits\HasImages;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -237,5 +238,32 @@ class PromoModel extends Model implements PromoModelContract
             : str_replace('promo_type_', '', $promoType[0]);
 
         return $promoType;
+    }
+
+    /**
+     * Выборка объектов по типу.
+     *
+     * @param  Builder  $query
+     * @param  string  $type
+     * @param  array  $params
+     *
+     * @return Builder
+     */
+    public function scopeItemsByType(Builder $query, string $type = '', array $params = []): Builder
+    {
+        $query->buildQuery($params);
+
+        if ($type) {
+            $query->whereHas(
+                'classifiers',
+                function ($classifiersQuery) use ($type) {
+                    $classifiersQuery->where('classifiers_entries.alias', $type);
+                }
+            );
+        } else {
+            $query->whereHas('classifiers');
+        }
+
+        return $query;
     }
 }
