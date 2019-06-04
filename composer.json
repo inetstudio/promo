@@ -1,0 +1,31 @@
+{
+  "name": "inetstudio/promo",
+  "description": "Package for promo",
+  "homepage": "https://github.com/inetstudio/promo",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Konstantin Bukin",
+      "email": "bukin@inetstudio.ru"
+    }
+  ],
+  "require": {
+    "inetstudio/admin-panel": "1.8.*",
+    "inetstudio/classifiers": "1.8.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "InetStudio\\PromoPackage\\": "package/src",
+      "InetStudio\\PromoPackage\\Promo\\": "entities/promo/src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "InetStudio\\PromoPackage\\Providers\\ServiceProvider",
+        "InetStudio\\PromoPackage\\Promo\\Providers\\BindingsServiceProvider",
+        "InetStudio\\PromoPackage\\Promo\\Providers\\ServiceProvider"
+      ]
+    }
+  }
+}
