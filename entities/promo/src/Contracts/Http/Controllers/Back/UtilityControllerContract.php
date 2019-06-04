@@ -3,9 +3,7 @@
 namespace InetStudio\PromoPackage\Promo\Contracts\Http\Controllers\Back;
 
 use Illuminate\Http\Request;
-use InetStudio\PromoPackage\Promo\Contracts\Services\Back\ItemsServiceContract;
 use InetStudio\PromoPackage\Promo\Contracts\Services\Back\UtilityServiceContract;
-use InetStudio\PromoPackage\Promo\Contracts\Http\Responses\Back\Utility\SlugResponseContract;
 use InetStudio\PromoPackage\Promo\Contracts\Http\Responses\Back\Utility\SuggestionsResponseContract;
 
 /**
