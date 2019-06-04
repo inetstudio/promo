@@ -67,7 +67,7 @@ return [
                             'type' => 'min',
                             'description' => 'Минимальный размер области — 750x500 пикселей',
                         ],
-                        'class' => 'is-main'
+                        'class' => 'is-main',
                     ],
                 ],
                 'main_preview' => [

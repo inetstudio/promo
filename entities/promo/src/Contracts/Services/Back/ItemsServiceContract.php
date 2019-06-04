@@ -2,8 +2,8 @@
 
 namespace InetStudio\PromoPackage\Promo\Contracts\Services\Back;
 
-use InetStudio\PromoPackage\Promo\Contracts\Models\PromoModelContract;
 use InetStudio\AdminPanel\Base\Contracts\Services\BaseServiceContract;
+use InetStudio\PromoPackage\Promo\Contracts\Models\PromoModelContract;
 
 /**
  * Interface ItemsServiceContract.
