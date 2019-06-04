@@ -107,7 +107,13 @@ class PromoModel extends Model implements PromoModelContract
 
         self::$buildQueryScopeDefaults['relations'] = [
             'classifiers' => function (MorphToMany $classifiersQuery) {
-                $classifiersQuery->select(['classifiers_entries.id', 'classifiers_entries.value', 'classifiers_entries.alias']);
+                $classifiersQuery->select(
+                    [
+                        'classifiers_entries.id',
+                        'classifiers_entries.value',
+                        'classifiers_entries.alias'
+                    ]
+                );
             },
 
             'media' => function (MorphMany $mediaQuery) {
@@ -219,9 +225,12 @@ class PromoModel extends Model implements PromoModelContract
      */
     public function getPromoTypeAttribute(): string
     {
-        $promoType = $this->classifiers()->whereHas('groups', function ($query) {
-            $query->where('alias', '=', 'promo_types');
-        })->pluck('alias')->toArray();
+        $promoType = $this->classifiers()->whereHas(
+            'groups',
+            function ($query) {
+                $query->where('alias', '=', 'promo_types');
+            }
+        )->pluck('alias')->toArray();
 
         $promoType = (empty($promoType))
             ? ($this->attributes['promo_type'] ?: self::BASE_PROMO_TYPE)

@@ -38,34 +38,43 @@ class CreatePromoTypesCommand extends Command
         if (DB::table('classifiers_groups')->where('alias', 'promo_types')->count() == 0) {
             $now = Carbon::now()->format('Y-m-d H:m:s');
 
-            $group = $groupsService->getModel()::updateOrCreate([
-                'name' => 'Тип промо',
-            ], [
-                'alias' => 'promo_types',
-            ]);
+            $group = $groupsService->getModel()::updateOrCreate(
+                [
+                    'name' => 'Тип промо',
+                ],
+                [
+                    'alias' => 'promo_types',
+                ]
+            );
 
             $ids = [];
 
-            $ids[] = DB::connection('mysql')->table('classifiers_entries')->insertGetId([
-                'value' => 'Акция',
-                'alias' => 'promo_type_promoaction',
-                'created_at' => $now,
-                'updated_at' => $now,
-            ]);
+            $ids[] = DB::connection('mysql')->table('classifiers_entries')->insertGetId(
+                [
+                    'value' => 'Акция',
+                    'alias' => 'promo_type_promoaction',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]
+            );
 
-            $ids[] = DB::connection('mysql')->table('classifiers_entries')->insertGetId([
-                'value' => 'Скидка',
-                'alias' => 'promo_type_sale',
-                'created_at' => $now,
-                'updated_at' => $now,
-            ]);
+            $ids[] = DB::connection('mysql')->table('classifiers_entries')->insertGetId(
+                [
+                    'value' => 'Скидка',
+                    'alias' => 'promo_type_sale',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]
+            );
 
-            $ids[] = DB::connection('mysql')->table('classifiers_entries')->insertGetId([
-                'value' => 'Промокод',
-                'alias' => 'promo_type_promocode',
-                'created_at' => $now,
-                'updated_at' => $now,
-            ]);
+            $ids[] = DB::connection('mysql')->table('classifiers_entries')->insertGetId(
+                [
+                    'value' => 'Промокод',
+                    'alias' => 'promo_type_promocode',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]
+            );
 
             $group->entries()->attach($ids);
         }
