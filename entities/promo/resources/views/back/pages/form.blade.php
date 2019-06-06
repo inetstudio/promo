@@ -132,8 +132,9 @@
                                                 'title' => 'Описание',
                                             ],
                                             'field' => [
-                                                'class' => 'tinymce',
-                                                'id' => 'content',
+                                                'class' => 'tinymce-simple',
+                                                'type' => 'simple',
+                                                'id' => 'description',
                                             ],
                                         ]) !!}
 
