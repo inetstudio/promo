@@ -158,6 +158,7 @@
                                             ],
                                             'field' => [
                                                 'class' => 'datetimepicker form-control',
+                                                'autocomplete' => 'off'
                                             ],
                                         ]) !!}
 
@@ -167,6 +168,7 @@
                                             ],
                                             'field' => [
                                                 'class' => 'datetimepicker form-control',
+                                                'autocomplete' => 'off'
                                             ],
                                         ]) !!}
 
