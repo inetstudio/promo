@@ -112,7 +112,7 @@ class PromoModel extends Model implements PromoModelContract
                     [
                         'classifiers_entries.id',
                         'classifiers_entries.value',
-                        'classifiers_entries.alias'
+                        'classifiers_entries.alias',
                     ]
                 );
             },
