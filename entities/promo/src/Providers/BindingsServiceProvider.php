@@ -28,6 +28,7 @@ class BindingsServiceProvider extends BaseServiceProvider implements DeferrableP
         'InetStudio\PromoPackage\Promo\Contracts\Services\Back\DataTableServiceContract' => 'InetStudio\PromoPackage\Promo\Services\Back\DataTableService',
         'InetStudio\PromoPackage\Promo\Contracts\Services\Back\ItemsServiceContract' => 'InetStudio\PromoPackage\Promo\Services\Back\ItemsService',
         'InetStudio\PromoPackage\Promo\Contracts\Services\Back\UtilityServiceContract' => 'InetStudio\PromoPackage\Promo\Services\Back\UtilityService',
+        'InetStudio\PromoPackage\Promo\Contracts\Services\Front\FeedsServiceContract' => 'InetStudio\PromoPackage\Promo\Services\Front\FeedsService',
         'InetStudio\PromoPackage\Promo\Contracts\Services\Front\ItemsServiceContract' => 'InetStudio\PromoPackage\Promo\Services\Front\ItemsService',
         'InetStudio\PromoPackage\Promo\Contracts\Transformers\Back\Resource\IndexTransformerContract' => 'InetStudio\PromoPackage\Promo\Transformers\Back\Resource\IndexTransformer',
         'InetStudio\PromoPackage\Promo\Contracts\Transformers\Back\Utility\SuggestionTransformerContract' => 'InetStudio\PromoPackage\Promo\Transformers\Back\Utility\SuggestionTransformer',
