@@ -79,13 +79,13 @@ export default {
       return route('back.promo.getSuggestions').toString();
     },
     modalPromoState() {
-      return window.Admin.vue.stores['promos-package_promos'].state.mode;
+      return window.Admin.vue.stores['promo-package_promo'].state.mode;
     },
   },
   watch: {
     modalPromoState: function(newMode) {
       if (newMode === 'promo_created') {
-        let promo = window.Admin.vue.stores['promos-package_promos'].state.promo;
+        let promo = window.Admin.vue.stores['promo-package_promo'].state.promo;
 
         this.model.params.id = promo.model.id;
 
