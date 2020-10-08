@@ -5,15 +5,9 @@ namespace InetStudio\PromoPackage\Promo\Providers;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-/**
- * Class BindingsServiceProvider.
- */
 class BindingsServiceProvider extends BaseServiceProvider implements DeferrableProvider
 {
-    /**
-     * @var array
-     */
-    public $bindings = [
+    public array $bindings = [
         'InetStudio\PromoPackage\Promo\Contracts\Events\Back\ModifyItemEventContract' => 'InetStudio\PromoPackage\Promo\Events\Back\ModifyItemEvent',
         'InetStudio\PromoPackage\Promo\Contracts\Http\Controllers\Back\ResourceControllerContract' => 'InetStudio\PromoPackage\Promo\Http\Controllers\Back\ResourceController',
         'InetStudio\PromoPackage\Promo\Contracts\Http\Controllers\Back\DataControllerContract' => 'InetStudio\PromoPackage\Promo\Http\Controllers\Back\DataController',
@@ -23,6 +17,7 @@ class BindingsServiceProvider extends BaseServiceProvider implements DeferrableP
         'InetStudio\PromoPackage\Promo\Contracts\Http\Responses\Back\Resource\FormResponseContract' => 'InetStudio\PromoPackage\Promo\Http\Responses\Back\Resource\FormResponse',
         'InetStudio\PromoPackage\Promo\Contracts\Http\Responses\Back\Resource\IndexResponseContract' => 'InetStudio\PromoPackage\Promo\Http\Responses\Back\Resource\IndexResponse',
         'InetStudio\PromoPackage\Promo\Contracts\Http\Responses\Back\Resource\SaveResponseContract' => 'InetStudio\PromoPackage\Promo\Http\Responses\Back\Resource\SaveResponse',
+        'InetStudio\PromoPackage\Promo\Contracts\Http\Responses\Back\Resource\ShowResponseContract' => 'InetStudio\PromoPackage\Promo\Http\Responses\Back\Resource\ShowResponse',
         'InetStudio\PromoPackage\Promo\Contracts\Http\Responses\Back\Utility\SuggestionsResponseContract' => 'InetStudio\PromoPackage\Promo\Http\Responses\Back\Utility\SuggestionsResponse',
         'InetStudio\PromoPackage\Promo\Contracts\Models\PromoModelContract' => 'InetStudio\PromoPackage\Promo\Models\PromoModel',
         'InetStudio\PromoPackage\Promo\Contracts\Services\Back\DataTableServiceContract' => 'InetStudio\PromoPackage\Promo\Services\Back\DataTableService',
@@ -34,11 +29,6 @@ class BindingsServiceProvider extends BaseServiceProvider implements DeferrableP
         'InetStudio\PromoPackage\Promo\Contracts\Transformers\Back\Utility\SuggestionTransformerContract' => 'InetStudio\PromoPackage\Promo\Transformers\Back\Utility\SuggestionTransformer',
     ];
 
-    /**
-     * Получить сервисы от провайдера.
-     *
-     * @return array
-     */
     public function provides()
     {
         return array_keys($this->bindings);
