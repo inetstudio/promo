@@ -20,7 +20,7 @@ Route::group(
             'promo', 'ResourceControllerContract',
             [
                 'except' => [
-                    'show', 'create',
+                    'create',
                 ],
                 'as' => 'back',
             ]
