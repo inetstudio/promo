@@ -1,4 +1,7 @@
-window.Admin.vue.stores['promo-package_promo'] = new Vuex.Store({
+import hash from 'object-hash';
+import { v4 as uuidv4 } from 'uuid';
+
+window.Admin.vue.stores['promo-package_promo'] = new window.Vuex.Store({
   state: {
     emptyPromo: {
       model: {
@@ -22,10 +25,10 @@ window.Admin.vue.stores['promo-package_promo'] = new Vuex.Store({
   mutations: {
     setPromo(state, promo) {
       let emptyPromo = JSON.parse(JSON.stringify(state.emptyPromo));
-      emptyPromo.model.id = UUID.generate();
+      emptyPromo.model.id = uuidv4();
 
       let resultPromo = _.merge(emptyPromo, promo);
-      resultPromo.hash = window.hash(resultPromo.model);
+      resultPromo.hash = hash(resultPromo.model);
 
       state.promo = resultPromo;
     },

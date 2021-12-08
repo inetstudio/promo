@@ -4,9 +4,9 @@ require('../../../../../../widgets/entities/widgets/resources/assets/js/mixins/w
 
 require('./stores/promo');
 
-Vue.component(
+window.Vue.component(
     'PromoWidget',
-    require('./components/partials/PromoWidget/PromoWidget.vue').default,
+    () => import('./components/partials/PromoWidget/PromoWidget.vue'),
 );
 
 let promo = require('./package/promo');
