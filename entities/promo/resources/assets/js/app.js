@@ -1,3 +1,5 @@
+import {promo} from './package/promo';
+
 require('./plugins/tinymce/plugins/promo');
 
 require('../../../../../../widgets/entities/widgets/resources/assets/js/mixins/widget');
@@ -9,5 +11,4 @@ window.Vue.component(
     () => import('./components/partials/PromoWidget/PromoWidget.vue'),
 );
 
-let promo = require('./package/promo');
 promo.init();
