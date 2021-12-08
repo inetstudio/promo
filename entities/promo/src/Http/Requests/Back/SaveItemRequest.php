@@ -3,7 +3,7 @@
 namespace InetStudio\PromoPackage\Promo\Http\Requests\Back;
 
 use Illuminate\Foundation\Http\FormRequest;
-use InetStudio\Uploads\Validation\Rules\CropSize;
+use InetStudio\UploadsPackage\Uploads\Validation\Rules\CropSize;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use InetStudio\PromoPackage\Promo\Contracts\Http\Requests\Back\SaveItemRequestContract;
 

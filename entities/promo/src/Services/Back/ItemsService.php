@@ -45,9 +45,13 @@ class ItemsService extends BaseService implements ItemsServiceContract
         app()->make('InetStudio\Classifiers\Entries\Contracts\Services\Back\ItemsServiceContract')
             ->attachToObject($classifiersData, $item);
 
-        $images = (config('promo.images.conversions.promo')) ? array_keys(config('promo.images.conversions.promo')) : [];
-        app()->make('InetStudio\Uploads\Contracts\Services\Back\ImagesServiceContract')
-            ->attachToObject(request(), $item, $images, 'promo', 'promo');
+        resolve(
+            'InetStudio\UploadsPackage\Uploads\Contracts\Actions\AttachMediaToObjectActionContract',
+            [
+                'item' => $item,
+                'media' => Arr::get($data, 'media', []),
+            ]
+        )->execute();
 
         event(
             app()->makeWith(

@@ -7,7 +7,7 @@ use OwenIt\Auditing\Auditable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use InetStudio\Uploads\Models\Traits\HasImages;
+use InetStudio\UploadsPackage\Uploads\Models\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use InetStudio\Classifiers\Models\Traits\HasClassifiers;
@@ -21,7 +21,7 @@ use InetStudio\AdminPanel\Base\Models\Traits\Scopes\BuildQueryScopeTrait;
 class PromoModel extends Model implements PromoModelContract
 {
     use Auditable;
-    use HasImages;
+    use HasMedia;
     use SoftDeletes;
     use HasClassifiers;
     use BuildQueryScopeTrait;
@@ -42,16 +42,6 @@ class PromoModel extends Model implements PromoModelContract
      * @var bool
      */
     protected $auditTimestamps = true;
-
-    /**
-     * Настройки для генерации изображений.
-     *
-     * @var array
-     */
-    protected $images = [
-        'config' => 'promo',
-        'model' => 'promo',
-    ];
 
     /**
      * Связанная с моделью таблица.
@@ -267,5 +257,10 @@ class PromoModel extends Model implements PromoModelContract
         }
 
         return $query;
+    }
+
+    public function getMediaConfig(): array
+    {
+        return config('promo.media', []);
     }
 }
